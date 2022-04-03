@@ -1,0 +1,6 @@
+<resources>
+    <style name="BottomNavigationItemTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/bottom_navigation_item_text_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>
