@@ -5,5 +5,5 @@ import com.example.myapp.data.model.remote.MusicData
 import retrofit2.Response
 
 interface MusicRemoteDataSource {
-    suspend fun getMusicData() :LiveData<MusicData>?
+    suspend fun getMusicData() :Response<MusicData>
 }

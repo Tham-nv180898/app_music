@@ -8,12 +8,14 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MusicViewModel:ViewModel() {
-    val musicData:MutableLiveData<MusicData> = MutableLiveData()
-    fun getData(){
+class MusicViewModel : ViewModel() {
+    private val musicRepositoryImpl = MusicRepositoryImpl()
+    var musicData: MutableLiveData<MusicData> = MutableLiveData()
+
+    fun getMusicData() {
         CoroutineScope(Dispatchers.IO).launch {
-            val musicRepository = MusicRepositoryImpl()
-            musicData.postValue(musicRepository.getMusicData()?.value)
+            val result = musicRepositoryImpl.getMusicData()
+            musicData.postValue(result.value)
         }
     }
 }

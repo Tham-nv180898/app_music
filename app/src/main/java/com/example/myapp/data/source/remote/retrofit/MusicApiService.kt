@@ -7,5 +7,5 @@ import retrofit2.http.GET
 
 interface MusicApiService {
     @GET("v2/key-value-stores/EJ3Ppyr2t73Ifit64/records/LATEST")
-    suspend fun  getMusicData(): Response<LiveData<MusicData>>
+    suspend fun  getMusicData(): Response<MusicData>
 }
