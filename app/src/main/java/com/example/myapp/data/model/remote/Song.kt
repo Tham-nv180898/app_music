@@ -1,5 +1,9 @@
 package com.example.myapp.data.model.remote
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class Song(
     val avatar: String,
     val bgImage: String,
@@ -8,5 +12,5 @@ data class Song(
     val lyric: String,
     val music: String,
     val title: String,
-    val url: String
-)
+    val url: String,
+) : Parcelable

@@ -1,5 +1,6 @@
 package com.example.myapp.data.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.myapp.data.model.remote.MusicData
@@ -17,7 +18,10 @@ class MusicRepositoryImpl : MusicRepository {
 
     override suspend fun getMusicData(): LiveData<MusicData> {
         if (data.value == null) {
-            data.postValue(musicRemoteDataSourceImpl.getMusicData().body())
+            withContext(Dispatchers.Main) {
+                data.value = musicRemoteDataSourceImpl.getMusicData().body()
+                Log.d("error", "MusicRepositoryImpl")
+            }
         }
         return data
     }
