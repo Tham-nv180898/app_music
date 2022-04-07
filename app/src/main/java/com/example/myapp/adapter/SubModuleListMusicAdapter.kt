@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.myapp.R
 import com.example.myapp.data.model.remote.Song
-import com.example.myapp.ui.Detail.DetailActivity
+import com.example.myapp.ui.detail.DetailActivity
 
 
 class SubModuleListMusicAdapter :
@@ -41,7 +41,7 @@ class SubModuleListMusicAdapter :
         fun onClick(index: Int, listSong: List<Song>){
             avatar.setOnClickListener{
                 val intent = Intent(itemView.context, DetailActivity::class.java)
-                val bundle: Bundle = Bundle()
+                val bundle = Bundle()
                 bundle.putParcelableArrayList("listData", ArrayList(listSong))
                 bundle.putInt("index", index)
                 intent.putExtras(bundle)
